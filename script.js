@@ -5,7 +5,7 @@
 const footer = document.querySelector("footer");
 
 footer.innerHTML =
-`© ${new Date().getFullYear()} Desenvolvido por <strong>BenVRA®</strong>`;
+`© ${new Date().getFullYear()} Todos os direitos reservados.®</strong>`;
 
 
 // ==========================
