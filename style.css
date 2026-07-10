@@ -1,0 +1,564 @@
+/* ==========================
+   TOKENS
+========================== */
+
+:root{
+
+    --creme:#FAF6F0;
+    --bege:#EFE4D3;
+    --branco:#FFFFFF;
+
+    --marrom-escuro:#3D2E22;
+    --marrom-medio:#7A6350;
+    --marrom-suave:#A9917C;
+
+    --dourado:#B8935A;
+    --dourado-claro:#D9BF8B;
+
+    --sombra:rgba(61,46,34,.10);
+
+}
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--creme);
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    color:var(--marrom-escuro);
+
+    position:relative;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================
+   FUNDO AMBIENTE (sutil)
+========================== */
+
+.ambient{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    overflow:hidden;
+
+    background:linear-gradient(160deg,var(--creme) 0%,var(--bege) 100%);
+
+}
+
+.orb{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    opacity:.35;
+
+}
+
+.orb--um{
+
+    width:420px;
+    height:420px;
+
+    top:-140px;
+    left:-120px;
+
+    background:radial-gradient(circle,var(--dourado-claro),transparent 70%);
+
+    animation:derivar-um 26s ease-in-out infinite;
+
+}
+
+.orb--dois{
+
+    width:380px;
+    height:380px;
+
+    bottom:-160px;
+    right:-100px;
+
+    background:radial-gradient(circle,var(--marrom-suave),transparent 70%);
+
+    animation:derivar-dois 30s ease-in-out infinite;
+
+}
+
+@keyframes derivar-um{
+
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(40px,30px) scale(1.08); }
+
+}
+
+@keyframes derivar-dois{
+
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(-30px,-25px) scale(1.06); }
+
+}
+
+/* CONTAINER */
+
+.container{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:35px;
+
+}
+
+/* CARD */
+
+.card{
+
+    width:100%;
+    max-width:430px;
+
+    background:rgba(255,255,255,.62);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.5);
+
+    border-radius:28px;
+
+    padding:44px 40px;
+
+    text-align:center;
+
+    box-shadow:0 24px 60px var(--sombra);
+
+    animation:surgir .9s ease;
+
+}
+
+/* FOTO + ANEL DE ASSINATURA */
+
+.photo-wrap{
+
+    position:relative;
+
+    width:150px;
+    height:150px;
+
+    margin:0 auto 26px;
+
+}
+
+.anel{
+
+    position:absolute;
+
+    inset:-14px;
+
+    width:178px;
+    height:178px;
+
+    color:var(--dourado);
+
+    opacity:.55;
+
+    animation:girar 42s linear infinite;
+
+}
+
+.foto{
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid var(--branco);
+
+    box-shadow:0 10px 25px var(--sombra);
+
+    display:block;
+
+}
+
+@keyframes girar{
+
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+
+}
+
+/* TEXTOS */
+
+.eyebrow{
+
+    font-size:11px;
+
+    font-weight:500;
+
+    letter-spacing:1.6px;
+
+    text-transform:uppercase;
+
+    color:var(--dourado);
+
+    margin-bottom:10px;
+
+}
+
+h1{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:38px;
+
+    font-weight:600;
+
+    color:var(--marrom-escuro);
+
+    line-height:1.15;
+
+}
+
+.cargo{
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    letter-spacing:.3px;
+
+    color:var(--marrom-medio);
+
+}
+
+.cro{
+
+    color:var(--marrom-suave);
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    letter-spacing:.3px;
+
+}
+
+.linha{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:26px 0;
+
+}
+
+.linha span{
+
+    width:52px;
+
+    height:1px;
+
+    background:linear-gradient(90deg,transparent,var(--dourado),transparent);
+
+}
+
+.bio{
+
+    line-height:1.75;
+
+    color:var(--marrom-medio);
+
+    font-size:14.5px;
+
+    margin-bottom:22px;
+
+}
+
+/* TAGS */
+
+.tags{
+
+    list-style:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:30px;
+
+}
+
+.tags li{
+
+    font-size:11.5px;
+
+    letter-spacing:.3px;
+
+    color:var(--marrom-medio);
+
+    background:var(--bege);
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(184,147,90,.25);
+
+}
+
+/* BOTÕES */
+
+.buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.btn{
+
+    text-decoration:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:11px;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    font-weight:600;
+
+    font-size:14.5px;
+
+    letter-spacing:.2px;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.btn i{
+
+    font-size:18px;
+
+}
+
+.btn-primario{
+
+    background:var(--marrom-escuro);
+
+    color:var(--branco);
+
+    box-shadow:0 10px 22px var(--sombra);
+
+}
+
+.btn-primario i{
+
+    color:var(--dourado-claro);
+
+}
+
+.btn-secundario{
+
+    background:transparent;
+
+    color:var(--marrom-escuro);
+
+    border:1px solid rgba(122,99,80,.3);
+
+}
+
+.btn-secundario i{
+
+    color:var(--dourado);
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 14px 28px var(--sombra);
+
+}
+
+.btn-primario:hover{
+
+    background:#2f2318;
+
+}
+
+.btn-secundario:hover{
+
+    background:var(--bege);
+
+    border-color:var(--dourado);
+
+}
+
+/* RIPPLE */
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.5);
+
+    transform:scale(0);
+
+    animation:ondular .6s ease-out;
+
+    pointer-events:none;
+
+}
+
+@keyframes ondular{
+
+    to{
+
+        transform:scale(3.2);
+        opacity:0;
+
+    }
+
+}
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:26px;
+
+    color:var(--marrom-suave);
+
+    font-size:13px;
+
+}
+
+footer strong{
+
+    color:var(--marrom-medio);
+
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+
+@keyframes surgir{
+
+    from{
+
+        opacity:0;
+        transform:translateY(36px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:480px){
+
+    .card{
+
+        padding:34px 26px;
+
+    }
+
+    h1{
+
+        font-size:32px;
+
+    }
+
+    .photo-wrap{
+
+        width:130px;
+        height:130px;
+
+    }
+
+    .anel{
+
+        width:156px;
+        height:156px;
+
+    }
+
+    .foto{
+
+        width:130px;
+        height:130px;
+
+    }
+
+}
+
+/* ACESSIBILIDADE — respeita quem prefere menos movimento */
+
+@media(prefers-reduced-motion:reduce){
+
+    .orb,.anel,.card{
+
+        animation:none !important;
+
+    }
+
+}
